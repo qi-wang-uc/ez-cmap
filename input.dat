@@ -16,5 +16,5 @@ sele2
     segid SEGI
 end
 
-# Outname of dmat file
-outname dmat_out
+# Outname prefix of cmap file, full name will be ${outname}-frame${framenum}.dat
+outname cmap_out

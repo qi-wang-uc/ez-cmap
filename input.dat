@@ -13,7 +13,7 @@ end
 sele2
     resid 1:340
     type CA N C O
-    segid SEGID
+    segid SEGI
 end
 
 # Outname of dmat file

@@ -2,7 +2,7 @@
 Calculate contact number map between selected residues
 
 #### Usage:
-- Compile with `g++ -std=c++11 ez-cmap.cc -o ez-cmap.exe`
+- Compile with `g++ -std=c++11 ez-cmap.cpp -o ez-cmap.exe`
 - Run with `./ez-cmap.exe input.dat`
 
 #### Example:

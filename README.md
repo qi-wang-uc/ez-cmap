@@ -6,11 +6,5 @@ Calculate contact number map between selected residues
 - Run with `./ez-cmap.exe input.dat`
 
 #### Example:
-![example](test.png)
+![example](test/test.png)
 
-#### TODO:
-- [ ] Reorganize code for easier maintenance.
-
-- [ ] Add logic expressions support.
-
-- [ ] Add GPU support.

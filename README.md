@@ -10,6 +10,8 @@ Calculate contact number map between selected residues
 # Read input
 psfname input.psf
 dcdname input.dcd
+dcdspec all
+
 cutoff  8.0
 
 # Define selections
@@ -26,9 +28,10 @@ sele2
 end
 
 # Outname prefix of cmap file, full name will be ${outname}-frame${framenum}.dat
-outname cmap_out
+outpref cmap_out
 ```
 *Note*: 
+- `dcdspec` will specify which frame to use: integer (e.g. `dcdspec 3`) for a certrain frame or `dcdspec all` for every frame.
 - The `resid` selection should be a complete string (e.g. `1:340`) without any space seperations.
 - Currently the program only supports single residue range or segid but multiple atom types.
 

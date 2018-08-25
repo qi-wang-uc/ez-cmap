@@ -2,8 +2,8 @@
 Calculate contact number map between selected residues
 
 #### Usage:
-- Compile with `make` in the program root folder
-- Run with `./ez-cmap.exe input.dat`
+- Compile with `make` in the program root folder, then executable can be found in `bin/`.
+- Run with `./ez-cmap input.dat`
 
 #### Example Input:
 ```

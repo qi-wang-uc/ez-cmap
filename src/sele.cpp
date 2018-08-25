@@ -24,7 +24,13 @@ Selection::Selection(const SeleContext& sele_context, const std::vector<PsfAtom>
             this->AtomToResMap[each_atom.atomid] = each_atom.resid;
         }
     }
-    std::cout << "Selection> (" << AtomIndex.size() << ") atoms selected." << std::endl;
+    if (0==AtomIndex.size()) {
+        std::cout << std::endl << ">>>>> WARNNING: 0 atoms selected. <<<<<" 
+                  << std::endl << std::endl;
+    } else {
+        std::cout << "Selection> (" << AtomIndex.size() 
+                  << ") atoms selected." << std::endl;
+    }
     this->sele_natom = AtomIndex.size();
 }
 

@@ -32,6 +32,10 @@ bool Config::readConfig(const Str& inp_name) {
             commands.pop();
             this->dcd_name = commands.front();
             commands.pop();
+        } else if ("dcdspec"==commands.front()) {
+            commands.pop();
+            this->dcd_spec = commands.front();
+            commands.pop();
         } else if ("cutoff" == commands.front()) {
             commands.pop();
             this->r_cutoff = std::stof(commands.front());
@@ -52,7 +56,7 @@ bool Config::readConfig(const Str& inp_name) {
                 commands.pop();
             }
             this->dmat_sele.second = retrieveSeleContext(sele_str);
-        } else if ("outname"==commands.front()) {
+        } else if ("outpref"==commands.front()) {
             commands.pop();
             this->out_pref = commands.front();
         } else {
@@ -68,6 +72,10 @@ Str Config::getConfigPsfName() const {
 
 Str Config::getConfigDcdName() const {
     return this->dcd_name;
+}
+
+Str Config::getConfigDcdSpec() const {
+    return this->dcd_spec;
 }
 
 float Config::getConfigCutoff() const {
@@ -88,6 +96,7 @@ void Config::printConfig() const {
               << "PSF NAME: " << this->psf_name << std::endl
               << "DCD NAME: " << this->dcd_name << std::endl
               << "R_CUTOFF: " << this->r_cutoff << std::endl
+              << "DCD FRAMES TO USE: " << this->dcd_spec << std::endl
               << "SELECTION 1: " << std::endl
               << "  residue " << this->dmat_sele.first.resi_range.first 
               << " to "       << this->dmat_sele.first.resi_range.second 

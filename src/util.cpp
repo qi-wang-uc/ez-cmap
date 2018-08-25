@@ -43,3 +43,21 @@ void printProgName() {
     std::cout << "EZCMAP> Generating residue contact number map. (version 1.1)"
               << std::endl;
 }
+
+void printDcdInfo(const DCD_Info& dcd_info) {
+    std::cout << "ReadDCD> Summary of DCD information:" << std::endl
+              << dcd_info.dcd_remark1 << std::endl
+              << dcd_info.dcd_remark2 << std::endl
+              << "ReadDCD> NFILE=" << dcd_info.n_file 
+              << " NPRIV=" << dcd_info.n_priv
+              << " NSAVC=" << dcd_info.n_savc 
+              << " NSTEP=" << dcd_info.n_step << std::endl
+              << "ReadDCD> DELTA=" << dcd_info.delta
+              << "  PBC cells " << (dcd_info.q_cell ? "":"NOT") << " detected" 
+              << std::endl
+              << "ReadDCD> DCD file is " << (dcd_info.q_namd ? "":"NOT") << " NAMD format" 
+              << std::endl
+              << "ReadDCD> (" << dcd_info.n_atom 
+              << ") atoms found in trajectory file." 
+              << std::endl;
+}

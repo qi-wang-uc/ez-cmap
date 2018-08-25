@@ -7,6 +7,7 @@ class Config {
     protected:
         Str psf_name;
         Str dcd_name;
+        Str dcd_spec;
         float r_cutoff;
         std::pair<SeleContext, SeleContext> dmat_sele;
         Str out_pref;
@@ -16,6 +17,7 @@ class Config {
     // getter
         Str getConfigPsfName() const;
         Str getConfigDcdName() const;
+        Str getConfigDcdSpec() const;
         float getConfigCutoff() const;
         std::pair<SeleContext, SeleContext> getConfigSeleContext() const;
         Str getConfigOutPref() const;

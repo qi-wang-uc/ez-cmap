@@ -27,6 +27,9 @@ void DEBUG(const T& debug_info) {
     std::cout << "DEBUG> " << debug_info << std::endl;
 }
 
+/* Print summary of DCD */
+void printDcdInfo(const DCD_Info& dcd_info);
+
 /* Print program info */
 void printProgName();
 

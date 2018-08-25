@@ -36,9 +36,14 @@ struct DCD_Info {
     Str dcd_header2;    // [16] NATOM padded by dummy size_ts on both sides
 
     // Obtained from header.
+    Int n_file = 0;
+    Int n_priv  = 0;
+    Int n_savc  = 0;
+    Int n_step  = 0;
     Int n_atom  = 0;
-    Int n_frame = 0;
-    Int q_cell  = 0;
+    bool q_cell  = false;
+    bool q_namd  = false;
+    float delta = 0.0;
     
     // Caclulated based on above.
     Int x_offset = 0;

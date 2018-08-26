@@ -5,10 +5,9 @@
 #include "define.hpp"
 #include "util.hpp"
 
-ContactMap::ContactMap(Selection sele1, Selection sele2) {
+ContactMap::ContactMap(const Selection& sele1, const Selection& sele2) 
+                                  : AtomSele1(sele1), AtomSele2(sele2) {
     std::cout << "CMAP> Initializing contact map ..." << std::endl;
-    this->AtomSele1 = std::move(sele1);
-    this->AtomSele2 = std::move(sele2);
     for(const auto& atom_i : this->AtomSele1.getAtomIdVec()) {
         auto resi_i = this->AtomSele1.getMappedRes(atom_i);
         for(const auto& atom_j : this->AtomSele2.getAtomIdVec()) {
@@ -113,7 +112,6 @@ void ContactMap::buildContactMap(const Int& dim1, const Int& dim2, const float& 
             auto cord_j = this->CordSele2[idx_j];
             auto atom_j = this->AtomSele2.getAtomIdVec()[idx_j];
             auto resi_j = this->AtomSele2.getMappedRes(atom_j);
-            // Dmatrix[idx_i*dim1+idx_j] = atom_i.distsq(atom_j) < rcut2 ? 1 : 0;
             auto br_ij = cord_i.distsq(cord_j) < rcut2 ? 1 : 0;
             this->Cmap[std::make_pair(resi_i, resi_j)] += br_ij;
         }

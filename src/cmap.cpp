@@ -53,10 +53,10 @@ bool ContactMap::processDcdData(const Config& config, const Int& psf_natom) {
     dcd_info.dcd_remark2.assign(title, 80);
 	inp_file.read(dcd_head2, 16);
     dcd_info.n_atom = *(int*)(&dcd_head2[8]);
+
+    printDcdInfo(dcd_info);
     if(dcd_info.n_atom != psf_natom) {
         return error_exit<bool>("Mismatch of Natom in PSF and DCD.", false);
-    } else {
-        printDcdInfo(dcd_info);
     }
     // Update offset information
     dcd_info.x_offset = (dcd_info.q_cell) ? 14 : 0;	
@@ -124,9 +124,9 @@ void ContactMap::writeContactMap(const Str& out_pref, const Int& iframe) {
     Str out_name = out_pref + "-frame" + std::to_string(iframe+1) + ".dat";
     std::ofstream out_file(out_name);
     for (const auto& c : this->Cmap) {
-        out_file << std::setw(10) << c.first.first 
-                 << std::setw(10) << c.first.second 
-                 << std::setw(10) << c.second 
+        out_file << std::setw(20) << c.first.first 
+                 << std::setw(20) << c.first.second 
+                 << std::setw(20) << c.second 
                  << std::endl;
     }
     out_file.close();

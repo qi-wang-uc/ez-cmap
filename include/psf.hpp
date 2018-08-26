@@ -31,4 +31,6 @@ class PSF {
         Int  getPsfNatom(void) const;
 };
 
+Int retrivePsfNatom(const Str& inp_str);
+
 #endif

@@ -10,12 +10,20 @@ bool PSF::readPsfData(const Str& inp_name) {
     std::ifstream inp_file(inp_name);
     if(!inp_file.is_open())
         return error_exit<bool>("Cannot open PSF file.", false);
-
-    std::regex r_psfatom("^\\s+\\d+\\s\\w+\\s\\d+\\s+\\w+\\s{2}\\w+.*");
+    std::regex r_psfatom("^\\s+\\d+\\s!NATOM");
     Str each_line;
+    bool is_atom_entry = false;
+    Int atom_entry_counter = 0;
+    Int atom_entry_total = 0;
     std::stringstream each_stream;
     while (getline(inp_file, each_line)) {
         if (std::regex_match(each_line, r_psfatom)) {
+            DEBUG<Str>(each_line);
+            is_atom_entry = true;
+            atom_entry_total = retrivePsfNatom(each_line);
+            continue;
+        }
+        if (is_atom_entry && atom_entry_counter<atom_entry_total) {
             PsfAtom tmp_atom;
             each_stream.clear();
             each_stream.str(each_line);
@@ -25,6 +33,7 @@ bool PSF::readPsfData(const Str& inp_name) {
                         >> tmp_atom.resname
                         >> tmp_atom.type;
             PsfData.push_back(tmp_atom);
+            is_atom_entry = (atom_entry_counter++ > atom_entry_total) ? false:true;
         }
     }
     this->psf_natom = PsfData.size();
@@ -41,4 +50,11 @@ std::vector<PsfAtom> const& PSF::getPsfData() const {
 
 Int PSF::getPsfNatom(void) const {
     return this->psf_natom;
+}
+
+Int retrivePsfNatom(const Str& inp_str) {
+    Str tmp;
+    std::stringstream entry_stream(inp_str);
+    entry_stream >> tmp;
+    return std::atoi(tmp.c_str());
 }

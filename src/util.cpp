@@ -53,9 +53,9 @@ void printDcdInfo(const DCD_Info& dcd_info) {
               << " NSAVC=" << dcd_info.n_savc 
               << " NSTEP=" << dcd_info.n_step << std::endl
               << "ReadDCD> DELTA=" << dcd_info.delta
-              << "  PBC cells " << (dcd_info.q_cell ? "":"NOT") << " detected" 
+              << "  PBC cells " << (dcd_info.q_cell ? "":"NOT ") << "detected" 
               << std::endl
-              << "ReadDCD> DCD file is " << (dcd_info.q_namd ? "":"NOT") << " NAMD format" 
+              << "ReadDCD> DCD file is " << (dcd_info.q_namd ? "":"NOT ") << "NAMD format" 
               << std::endl
               << "ReadDCD> (" << dcd_info.n_atom 
               << ") atoms found in trajectory file." 

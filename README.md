@@ -34,6 +34,7 @@ outpref cmap_out
 - `dcdspec` will specify which frame to use: integer (e.g. `dcdspec 3`) for a certrain frame or `dcdspec all` for every frame.
 - The `resid` selection should be a complete string (e.g. `1:340`) without any space seperations.
 - Currently the program only supports single residue range or segid but multiple atom types.
+- The residue range (`resid`) is actually an intersection of specified range and available range.
 
 #### Example:
 ![example](test/test.png)

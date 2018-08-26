@@ -18,7 +18,6 @@ bool PSF::readPsfData(const Str& inp_name) {
     std::stringstream each_stream;
     while (getline(inp_file, each_line)) {
         if (std::regex_match(each_line, r_psfatom)) {
-            DEBUG<Str>(each_line);
             is_atom_entry = true;
             atom_entry_total = retrivePsfNatom(each_line);
             continue;

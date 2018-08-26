@@ -6,7 +6,7 @@ BINDIR = ./bin
 SOURCE = $(wildcard ${SRCDIR}/*.cpp)
 OBJECT = $(patsubst %.cpp,${OBJDIR}/%.o,$(notdir ${SOURCE}))
 
-TARGET = main-prog
+TARGET = ez-cmap
 BIN_TARG = ${BINDIR}/${TARGET}
 
 CC = g++ 

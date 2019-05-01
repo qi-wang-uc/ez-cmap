@@ -1,11 +1,11 @@
-# ez-cmap
+# EZ-CMAP
 Calculate contact number map between selected residues
 
-#### Usage:
+### Usage:
 - Compile with `make` in the program root folder, then executable can be found in `bin/`.
 - Run with `./ez-cmap input.dat`
 
-#### Example Input:
+### Example Input:
 ```
 # Read input
 psfname input.psf
@@ -34,8 +34,8 @@ outpref cmap_out
 - `dcdspec` will specify which frame to use: integer (e.g. `dcdspec 3`) for a certrain frame or `dcdspec all` for every frame.
 - The `resid` selection should be a complete string (e.g. `1:340`) without any space seperations.
 - Currently the program only supports single residue range or segid but multiple atom types.
-- The residue range (`resid`) is actually an intersection of specified range and available range.
+- The residue range (`resid`) is enssentially an intersection of specified range and available range.
 
-#### Example:
+### Result:
 ![example](test/test.png)
 
